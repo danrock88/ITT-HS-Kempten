@@ -1,0 +1,221 @@
+<?xml version="1.0"?>
+<mysqldump xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<database name="Allgold">
+	<table_structure name="inventory">
+		<field Field="inventoryID" Type="int(10)" Null="NO" Key="PRI" Extra="auto_increment" Comment="" />
+		<field Field="productID" Type="int(10)" Null="NO" Key="MUL" Extra="" Comment="" />
+		<field Field="stationID" Type="int(10)" Null="NO" Key="MUL" Extra="" Comment="" />
+		<field Field="currentAmount" Type="int(11)" Null="NO" Key="" Extra="" Comment="" />
+		<key Table="inventory" Non_unique="0" Key_name="PRIMARY" Seq_in_index="1" Column_name="inventoryID" Collation="A" Cardinality="0" Null="" Index_type="BTREE" Comment="" Index_comment="" />
+		<key Table="inventory" Non_unique="1" Key_name="FK_stationID" Seq_in_index="1" Column_name="stationID" Collation="A" Cardinality="0" Null="" Index_type="BTREE" Comment="" Index_comment="" />
+		<key Table="inventory" Non_unique="1" Key_name="FK_productID" Seq_in_index="1" Column_name="productID" Collation="A" Cardinality="0" Null="" Index_type="BTREE" Comment="" Index_comment="" />
+		<options Name="inventory" Engine="InnoDB" Version="10" Row_format="Dynamic" Rows="0" Avg_row_length="0" Data_length="16384" Max_data_length="0" Index_length="32768" Data_free="0" Auto_increment="1" Create_time="2021-04-07 13:54:02" Collation="latin1_swedish_ci" Create_options="" Comment="" />
+	</table_structure>
+	<table_data name="inventory">
+	</table_data>
+	<table_structure name="products">
+		<field Field="productID" Type="int(11)" Null="NO" Key="PRI" Extra="auto_increment" Comment="" />
+		<field Field="name" Type="varchar(20)" Null="NO" Key="" Extra="" Comment="" />
+		<field Field="price" Type="decimal(3,2)" Null="NO" Key="" Extra="" Comment="" />
+		<field Field="durability" Type="int(11)" Null="NO" Key="" Extra="" Comment="" />
+		<key Table="products" Non_unique="0" Key_name="PRIMARY" Seq_in_index="1" Column_name="productID" Collation="A" Cardinality="8" Null="" Index_type="BTREE" Comment="" Index_comment="" />
+		<options Name="products" Engine="InnoDB" Version="10" Row_format="Dynamic" Rows="8" Avg_row_length="2048" Data_length="16384" Max_data_length="0" Index_length="0" Data_free="0" Auto_increment="9" Create_time="2021-03-25 09:03:53" Collation="latin1_swedish_ci" Create_options="" Comment="" />
+	</table_structure>
+	<table_data name="products">
+	<row>
+		<field name="productID">1</field>
+		<field name="name">Milch</field>
+		<field name="price">1.00</field>
+		<field name="durability">14</field>
+	</row>
+	<row>
+		<field name="productID">2</field>
+		<field name="name">Emmentaler</field>
+		<field name="price">3.95</field>
+		<field name="durability">60</field>
+	</row>
+	<row>
+		<field name="productID">3</field>
+		<field name="name">Gauda</field>
+		<field name="price">3.10</field>
+		<field name="durability">60</field>
+	</row>
+	<row>
+		<field name="productID">4</field>
+		<field name="name">Joghurt 100g</field>
+		<field name="price">0.50</field>
+		<field name="durability">7</field>
+	</row>
+	<row>
+		<field name="productID">5</field>
+		<field name="name">Quark</field>
+		<field name="price">0.90</field>
+		<field name="durability">10</field>
+	</row>
+	<row>
+		<field name="productID">6</field>
+		<field name="name">Joghurt 500g</field>
+		<field name="price">2.00</field>
+		<field name="durability">7</field>
+	</row>
+	<row>
+		<field name="productID">7</field>
+		<field name="name">Streichkaese</field>
+		<field name="price">1.50</field>
+		<field name="durability">21</field>
+	</row>
+	<row>
+		<field name="productID">8</field>
+		<field name="name">Bergkaese</field>
+		<field name="price">5.00</field>
+		<field name="durability">60</field>
+	</row>
+	</table_data>
+	<table_structure name="refill">
+		<field Field="refillID" Type="int(11)" Null="NO" Key="PRI" Extra="auto_increment" Comment="" />
+		<field Field="stationID" Type="int(10)" Null="NO" Key="PRI" Extra="" Comment="" />
+		<field Field="productID" Type="int(10)" Null="NO" Key="PRI" Extra="" Comment="" />
+		<field Field="amount" Type="int(3)" Null="NO" Key="" Extra="" Comment="" />
+		<field Field="timestamp" Type="timestamp" Null="NO" Key="" Default="CURRENT_TIMESTAMP" Extra="on update CURRENT_TIMESTAMP" Comment="" />
+		<field Field="supplier" Type="int(11)" Null="NO" Key="" Extra="" Comment="" />
+		<key Table="refill" Non_unique="0" Key_name="PRIMARY" Seq_in_index="1" Column_name="refillID" Collation="A" Cardinality="0" Null="" Index_type="BTREE" Comment="" Index_comment="" />
+		<key Table="refill" Non_unique="0" Key_name="PRIMARY" Seq_in_index="2" Column_name="stationID" Collation="A" Cardinality="0" Null="" Index_type="BTREE" Comment="" Index_comment="" />
+		<key Table="refill" Non_unique="0" Key_name="PRIMARY" Seq_in_index="3" Column_name="productID" Collation="A" Cardinality="0" Null="" Index_type="BTREE" Comment="" Index_comment="" />
+		<key Table="refill" Non_unique="1" Key_name="fk_station" Seq_in_index="1" Column_name="stationID" Collation="A" Cardinality="0" Null="" Index_type="BTREE" Comment="" Index_comment="" />
+		<key Table="refill" Non_unique="1" Key_name="fk_products" Seq_in_index="1" Column_name="productID" Collation="A" Cardinality="0" Null="" Index_type="BTREE" Comment="" Index_comment="" />
+		<options Name="refill" Engine="InnoDB" Version="10" Row_format="Dynamic" Rows="0" Avg_row_length="0" Data_length="16384" Max_data_length="0" Index_length="32768" Data_free="0" Auto_increment="1" Create_time="2021-04-30 11:18:32" Collation="latin1_swedish_ci" Create_options="" Comment="" />
+	</table_structure>
+	<table_data name="refill">
+	</table_data>
+	<table_structure name="sale">
+		<field Field="saleID" Type="int(11)" Null="NO" Key="PRI" Extra="" Comment="" />
+		<field Field="productID" Type="int(10)" Null="NO" Key="PRI" Extra="" Comment="" />
+		<field Field="stationID" Type="int(10)" Null="NO" Key="PRI" Extra="" Comment="" />
+		<field Field="amount" Type="int(3)" Null="NO" Key="" Extra="" Comment="" />
+		<field Field="timestamp" Type="timestamp" Null="NO" Key="" Default="CURRENT_TIMESTAMP" Extra="on update CURRENT_TIMESTAMP" Comment="" />
+		<key Table="sale" Non_unique="0" Key_name="PRIMARY" Seq_in_index="1" Column_name="saleID" Collation="A" Cardinality="0" Null="" Index_type="BTREE" Comment="" Index_comment="" />
+		<key Table="sale" Non_unique="0" Key_name="PRIMARY" Seq_in_index="2" Column_name="productID" Collation="A" Cardinality="0" Null="" Index_type="BTREE" Comment="" Index_comment="" />
+		<key Table="sale" Non_unique="0" Key_name="PRIMARY" Seq_in_index="3" Column_name="stationID" Collation="A" Cardinality="0" Null="" Index_type="BTREE" Comment="" Index_comment="" />
+		<options Name="sale" Engine="InnoDB" Version="10" Row_format="Dynamic" Rows="0" Avg_row_length="0" Data_length="16384" Max_data_length="0" Index_length="0" Data_free="0" Create_time="2021-04-30 11:22:19" Collation="latin1_swedish_ci" Create_options="" Comment="" />
+	</table_structure>
+	<table_data name="sale">
+	</table_data>
+	<table_structure name="seller">
+		<field Field="sellerID" Type="int(11)" Null="NO" Key="PRI" Extra="" Comment="" />
+		<field Field="type" Type="int(1)" Null="NO" Key="" Extra="" Comment="" />
+		<field Field="human_machine_id" Type="int(10)" Null="NO" Key="" Extra="" Comment="" />
+		<key Table="seller" Non_unique="0" Key_name="PRIMARY" Seq_in_index="1" Column_name="sellerID" Collation="A" Cardinality="0" Null="" Index_type="BTREE" Comment="" Index_comment="" />
+		<options Name="seller" Engine="InnoDB" Version="10" Row_format="Dynamic" Rows="0" Avg_row_length="0" Data_length="16384" Max_data_length="0" Index_length="0" Data_free="0" Create_time="2021-04-30 11:20:40" Collation="latin1_swedish_ci" Create_options="" Comment="" />
+	</table_structure>
+	<table_data name="seller">
+	</table_data>
+	<table_structure name="station">
+		<field Field="stationID" Type="int(10)" Null="NO" Key="PRI" Extra="auto_increment" Comment="" />
+		<field Field="coordsA" Type="varchar(30)" Null="NO" Key="" Extra="" Comment="" />
+		<field Field="coordsL" Type="varchar(30)" Null="NO" Key="" Extra="" Comment="" />
+		<field Field="location" Type="varchar(30)" Null="NO" Key="" Extra="" Comment="" />
+		<field Field="type" Type="varchar(1)" Null="NO" Key="" Extra="" Comment="" />
+		<field Field="description" Type="varchar(50)" Null="NO" Key="" Extra="" Comment="" />
+		<key Table="station" Non_unique="0" Key_name="PRIMARY" Seq_in_index="1" Column_name="stationID" Collation="A" Cardinality="12" Null="" Index_type="BTREE" Comment="" Index_comment="" />
+		<options Name="station" Engine="InnoDB" Version="10" Row_format="Dynamic" Rows="12" Avg_row_length="1365" Data_length="16384" Max_data_length="0" Index_length="0" Data_free="0" Auto_increment="13" Create_time="2021-03-25 09:03:53" Collation="latin1_swedish_ci" Create_options="" Comment="" />
+	</table_structure>
+	<table_data name="station">
+	<row>
+		<field name="stationID">1</field>
+		<field name="coordsA">47.71457225467146</field>
+		<field name="coordsL">10.314338207244873</field>
+		<field name="location">Kempten</field>
+		<field name="type">B</field>
+		<field name="description">Firmensitz</field>
+	</row>
+	<row>
+		<field name="stationID">2</field>
+		<field name="coordsA">47.72426740349347</field>
+		<field name="coordsL">10.316848754882812</field>
+		<field name="location">Kempten</field>
+		<field name="type">A</field>
+		<field name="description">Aussenstelle</field>
+	</row>
+	<row>
+		<field name="stationID">3</field>
+		<field name="coordsA">47.882828716292344</field>
+		<field name="coordsL">10.6264343852617</field>
+		<field name="location">Kaufbeuren</field>
+		<field name="type">V</field>
+		<field name="description">Aussenstelle</field>
+	</row>
+	<row>
+		<field name="stationID">4</field>
+		<field name="coordsA">47.98036221803081</field>
+		<field name="coordsL">10.1788330078125</field>
+		<field name="location">Memmingen</field>
+		<field name="type">B</field>
+		<field name="description">Aussenstelle</field>
+	</row>
+	<row>
+		<field name="stationID">5</field>
+		<field name="coordsA">47.694697038966076</field>
+		<field name="coordsL">10.038070678710938</field>
+		<field name="location">Isny</field>
+		<field name="type">A</field>
+		<field name="description">Aussenstelle</field>
+	</row>
+	<row>
+		<field name="stationID">6</field>
+		<field name="coordsA">47.77941861197757</field>
+		<field name="coordsL">10.616891384124756</field>
+		<field name="location">Marktoberdorf</field>
+		<field name="type">A</field>
+		<field name="description">Aussenstelle</field>
+	</row>
+	<row>
+		<field name="stationID">7</field>
+		<field name="coordsA">47.514634612973694</field>
+		<field name="coordsL">10.26755619153846</field>
+		<field name="location">Sonthofen</field>
+		<field name="type">V</field>
+		<field name="description">Aussenstelle</field>
+	</row>
+	<row>
+		<field name="stationID">8</field>
+		<field name="coordsA">47.41029678060909</field>
+		<field name="coordsL">10.275293827580754</field>
+		<field name="location">Oberstdorf</field>
+		<field name="type">A</field>
+		<field name="description">Aussenstelle</field>
+	</row>
+	<row>
+		<field name="stationID">9</field>
+		<field name="coordsA">47.554643912647045</field>
+		<field name="coordsL">10.022393703984562</field>
+		<field name="location">Oberstaufen</field>
+		<field name="type">A</field>
+		<field name="description">Aussenstelle</field>
+	</row>
+	<row>
+		<field name="stationID">10</field>
+		<field name="coordsA">47.560841627466885</field>
+		<field name="coordsL">10.21770143561298</field>
+		<field name="location">Immenstadt</field>
+		<field name="type">A</field>
+		<field name="description">Aussenstelle</field>
+	</row>
+	<row>
+		<field name="stationID">11</field>
+		<field name="coordsA">47.569648</field>
+		<field name="coordsL">10.700432800000044</field>
+		<field name="location">Fuessen</field>
+		<field name="type">B</field>
+		<field name="description">Aussenstelle</field>
+	</row>
+	<row>
+		<field name="stationID">12</field>
+		<field name="coordsA">47.550241351721596</field>
+		<field name="coordsL">9.69220304476039</field>
+		<field name="location">Lindau</field>
+		<field name="type">B</field>
+		<field name="description">Aussenstelle</field>
+	</row>
+	</table_data>
+</database>
+</mysqldump>
