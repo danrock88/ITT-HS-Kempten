@@ -1,0 +1,10 @@
+
+Saxon erstellt eine Datei preisliste.html mit dem Datenbankexport products.xml und der prozessor.xsl Datei:
+
+java -cp /home/inttentwickler/Downloads/saxon9he.jar net.sf.saxon.Transform -o:preisliste.html products.xml prozessor.xsl
+
+
+java -cp /home/inttentwickler/Downloads/saxon9he.jar net.sf.saxon.Transform -o:preisliste.fo products.xml preisliste.xsl
+
+Erstellen einer PDF Datei mit fop:
+fop preisliste.fo preisliste.pdf

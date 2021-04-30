@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+- phpMyAdmin XML Dump
+- version 4.5.4.1deb2ubuntu2.1
+- https://www.phpmyadmin.net
+-
+- Host: localhost
+- Generation Time: Apr 30, 2021 at 12:28 PM
+- Server version: 5.7.33-0ubuntu0.16.04.1
+- PHP Version: 7.0.33-0ubuntu0.16.04.16
+-->
+
+<pma_xml_export version="1.0">
+    <!--
+    - Database: 'Allgold'
+    -->
+    <database name="Allgold">
+        <!-- Table products -->
+        <table name="products">
+            <column name="productID">1</column>
+            <column name="name">Milch</column>
+            <column name="price">1.00</column>
+            <column name="durability">14</column>
+        </table>
+        <table name="products">
+            <column name="productID">2</column>
+            <column name="name">Emmentaler</column>
+            <column name="price">3.95</column>
+            <column name="durability">60</column>
+        </table>
+        <table name="products">
+            <column name="productID">3</column>
+            <column name="name">Gauda</column>
+            <column name="price">3.10</column>
+            <column name="durability">60</column>
+        </table>
+        <table name="products">
+            <column name="productID">4</column>
+            <column name="name">Joghurt 100g</column>
+            <column name="price">0.50</column>
+            <column name="durability">7</column>
+        </table>
+        <table name="products">
+            <column name="productID">5</column>
+            <column name="name">Quark</column>
+            <column name="price">0.90</column>
+            <column name="durability">10</column>
+        </table>
+        <table name="products">
+            <column name="productID">6</column>
+            <column name="name">Joghurt 500g</column>
+            <column name="price">2.00</column>
+            <column name="durability">7</column>
+        </table>
+        <table name="products">
+            <column name="productID">7</column>
+            <column name="name">Streichkaese</column>
+            <column name="price">1.50</column>
+            <column name="durability">21</column>
+        </table>
+        <table name="products">
+            <column name="productID">8</column>
+            <column name="name">Bergkaese</column>
+            <column name="price">5.00</column>
+            <column name="durability">60</column>
+        </table>
+    </database>
+</pma_xml_export>
