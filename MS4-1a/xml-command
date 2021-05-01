@@ -8,3 +8,6 @@ java -cp /home/inttentwickler/Downloads/saxon9he.jar net.sf.saxon.Transform -o:p
 
 Erstellen einer PDF Datei mit fop:
 fop preisliste.fo preisliste.pdf
+
+SQL DUmp:
+mysqldump --xml -u inttentwickler -pITT11pra! -h 127.0.0.1 Allgold > dbkatalog.xml

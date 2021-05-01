@@ -161,7 +161,7 @@
 
 
 							<fo:table-body>
-								<xsl:for-each select ="mysqldump/database/table_data/row">
+								<xsl:for-each select ="/mysqldump/database/table_data/row">
 								<xsl:if test="../@name = $currLink">
 
 									
@@ -178,7 +178,7 @@
 											<xsl:if test="$startpos &lt;= $curpos and $curpos &lt; $endpos">
 
 									<fo:table-cell>
-										<fo:block> <xsl:value-of select="../field[@name='$curfield']"/> </fo:block>
+										<fo:block> <xsl:value-of select="../field[@name=$curfield]"/> </fo:block>
 									</fo:table-cell>
 								</xsl:if>
 							</xsl:if>
