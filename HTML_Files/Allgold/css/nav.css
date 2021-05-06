@@ -1,0 +1,51 @@
+#menu
+{
+margin: 0;
+padding: 0 0 20px 10px;
+
+}
+
+/* Formatierung des textbasierten Menüs */
+#menu ul, #menu li
+{
+margin: 0;
+padding: 0;
+display: inline;
+list-style-type: none;
+}
+
+/* Formatierung der Links (Menüeinträge) */
+#menu a:link, #menu a:visited
+{
+float: left;
+line-height: 14px;
+margin: 0 10px 4px 10px;
+text-decoration: none;
+
+color: green;
+padding-top: 7px;
+}
+
+#menu a:link#current, #menu a:visited#current, #menu a:hover
+{
+/* border-top: 3px solid #036;
+border-bottom: 4px solid #036;
+padding-top: 4px;
+padding-bottom: 6px; 
+background: #D9EAB3;
+*/
+text-decoration: underline;
+color: #004000;
+}
+
+
+
+
+
+/* IE-Hack für die Breite */
+
+*html ul.menu ul {
+
+    width:180px;
+
+}
