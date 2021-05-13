@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditSellerTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditSellerLabel_sellerID}" for="sellerID" />
+                    <h:inputText id="sellerID" value="#{sellerController.selected.sellerID}" title="#{bundle.EditSellerTitle_sellerID}" required="true" requiredMessage="#{bundle.EditSellerRequiredMessage_sellerID}"/>
+                    <h:outputLabel value="#{bundle.EditSellerLabel_type}" for="type" />
+                    <h:inputText id="type" value="#{sellerController.selected.type}" title="#{bundle.EditSellerTitle_type}" required="true" requiredMessage="#{bundle.EditSellerRequiredMessage_type}"/>
+                    <h:outputLabel value="#{bundle.EditSellerLabel_humanMachineId}" for="humanMachineId" />
+                    <h:inputText id="humanMachineId" value="#{sellerController.selected.humanMachineId}" title="#{bundle.EditSellerTitle_humanMachineId}" required="true" requiredMessage="#{bundle.EditSellerRequiredMessage_humanMachineId}"/>
+                </h:panelGrid>
+                <h:commandLink action="#{sellerController.update}" value="#{bundle.EditSellerSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditSellerViewLink}"/>
+                <br />
+                <h:commandLink action="#{sellerController.prepareList}" value="#{bundle.EditSellerShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditSellerIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

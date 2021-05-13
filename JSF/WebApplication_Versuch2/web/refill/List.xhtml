@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListRefillTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListRefillEmpty}" rendered="#{refillController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{refillController.items.rowCount > 0}">
+                    <h:outputText value="#{refillController.pagination.pageFirstItem + 1}..#{refillController.pagination.pageLastItem + 1}/#{refillController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{refillController.previous}" value="#{bundle.Previous} #{refillController.pagination.pageSize}" rendered="#{refillController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{refillController.next}" value="#{bundle.Next} #{refillController.pagination.pageSize}" rendered="#{refillController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{refillController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListRefillTitle_refillPK_refillID}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.refillPK.refillID}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListRefillTitle_amount}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.amount}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListRefillTitle_timestamp}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.timestamp}">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListRefillTitle_supplier}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.supplier}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListRefillTitle_products}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.products}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListRefillTitle_station}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.station}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{refillController.prepareView}" value="#{bundle.ListRefillViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{refillController.prepareEdit}" value="#{bundle.ListRefillEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{refillController.destroy}" value="#{bundle.ListRefillDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{refillController.prepareCreate}" value="#{bundle.ListRefillCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListRefillIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

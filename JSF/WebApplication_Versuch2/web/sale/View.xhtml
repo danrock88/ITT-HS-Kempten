@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewSaleTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewSaleLabel_salePK_stationID}"/>
+                    <h:outputText value="#{saleController.selected.salePK.stationID}" title="#{bundle.ViewSaleTitle_salePK_stationID}"/>
+                    <h:outputText value="#{bundle.ViewSaleLabel_salePK_productID}"/>
+                    <h:outputText value="#{saleController.selected.salePK.productID}" title="#{bundle.ViewSaleTitle_salePK_productID}"/>
+                    <h:outputText value="#{bundle.ViewSaleLabel_salePK_saleID}"/>
+                    <h:outputText value="#{saleController.selected.salePK.saleID}" title="#{bundle.ViewSaleTitle_salePK_saleID}"/>
+                    <h:outputText value="#{bundle.ViewSaleLabel_amount}"/>
+                    <h:outputText value="#{saleController.selected.amount}" title="#{bundle.ViewSaleTitle_amount}"/>
+                    <h:outputText value="#{bundle.ViewSaleLabel_timestamp}"/>
+                    <h:outputText value="#{saleController.selected.timestamp}" title="#{bundle.ViewSaleTitle_timestamp}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{saleController.destroyAndView}" value="#{bundle.ViewSaleDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewSaleEditLink}"/>
+                <br />
+                <h:commandLink action="#{saleController.prepareCreate}" value="#{bundle.ViewSaleCreateLink}" />
+                <br />
+                <h:commandLink action="#{saleController.prepareList}" value="#{bundle.ViewSaleShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewSaleIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateRefillTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateRefillLabel_refillPK_refillID}" for="refillPK_refillID" />
+                    <h:inputText id="refillPK_refillID" value="#{refillController.selected.refillPK.refillID}" title="#{bundle.CreateRefillTitle_refillPK_refillID}" required="true" requiredMessage="#{bundle.CreateRefillRequiredMessage_refillPK_refillID}"/>
+                    <h:outputLabel value="#{bundle.CreateRefillLabel_amount}" for="amount" />
+                    <h:inputText id="amount" value="#{refillController.selected.amount}" title="#{bundle.CreateRefillTitle_amount}" required="true" requiredMessage="#{bundle.CreateRefillRequiredMessage_amount}"/>
+                    <h:outputLabel value="#{bundle.CreateRefillLabel_timestamp}" for="timestamp" />
+                    <h:inputText id="timestamp" value="#{refillController.selected.timestamp}" title="#{bundle.CreateRefillTitle_timestamp}" required="true" requiredMessage="#{bundle.CreateRefillRequiredMessage_timestamp}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreateRefillLabel_supplier}" for="supplier" />
+                    <h:inputText id="supplier" value="#{refillController.selected.supplier}" title="#{bundle.CreateRefillTitle_supplier}" required="true" requiredMessage="#{bundle.CreateRefillRequiredMessage_supplier}"/>
+                    <h:outputLabel value="#{bundle.CreateRefillLabel_products}" for="products" />
+                    <h:selectOneMenu id="products" value="#{refillController.selected.products}" title="#{bundle.CreateRefillTitle_products}" required="true" requiredMessage="#{bundle.CreateRefillRequiredMessage_products}">
+                        <f:selectItems value="#{productsController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreateRefillLabel_station}" for="station" />
+                    <h:selectOneMenu id="station" value="#{refillController.selected.station}" title="#{bundle.CreateRefillTitle_station}" required="true" requiredMessage="#{bundle.CreateRefillRequiredMessage_station}">
+                        <f:selectItems value="#{stationController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{refillController.create}" value="#{bundle.CreateRefillSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{refillController.prepareList}" value="#{bundle.CreateRefillShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateRefillIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

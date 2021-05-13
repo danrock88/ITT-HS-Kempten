@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditSaleTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditSaleLabel_salePK_stationID}" for="salePK_stationID" />
+                    <h:inputText id="salePK_stationID" value="#{saleController.selected.salePK.stationID}" title="#{bundle.EditSaleTitle_salePK_stationID}" required="true" requiredMessage="#{bundle.EditSaleRequiredMessage_salePK_stationID}"/>
+                    <h:outputLabel value="#{bundle.EditSaleLabel_salePK_productID}" for="salePK_productID" />
+                    <h:inputText id="salePK_productID" value="#{saleController.selected.salePK.productID}" title="#{bundle.EditSaleTitle_salePK_productID}" required="true" requiredMessage="#{bundle.EditSaleRequiredMessage_salePK_productID}"/>
+                    <h:outputLabel value="#{bundle.EditSaleLabel_salePK_saleID}" for="salePK_saleID" />
+                    <h:inputText id="salePK_saleID" value="#{saleController.selected.salePK.saleID}" title="#{bundle.EditSaleTitle_salePK_saleID}" required="true" requiredMessage="#{bundle.EditSaleRequiredMessage_salePK_saleID}"/>
+                    <h:outputLabel value="#{bundle.EditSaleLabel_amount}" for="amount" />
+                    <h:inputText id="amount" value="#{saleController.selected.amount}" title="#{bundle.EditSaleTitle_amount}" required="true" requiredMessage="#{bundle.EditSaleRequiredMessage_amount}"/>
+                    <h:outputLabel value="#{bundle.EditSaleLabel_timestamp}" for="timestamp" />
+                    <h:inputText id="timestamp" value="#{saleController.selected.timestamp}" title="#{bundle.EditSaleTitle_timestamp}" required="true" requiredMessage="#{bundle.EditSaleRequiredMessage_timestamp}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                </h:panelGrid>
+                <h:commandLink action="#{saleController.update}" value="#{bundle.EditSaleSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditSaleViewLink}"/>
+                <br />
+                <h:commandLink action="#{saleController.prepareList}" value="#{bundle.EditSaleShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditSaleIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
