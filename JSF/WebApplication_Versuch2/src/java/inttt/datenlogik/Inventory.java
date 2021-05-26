@@ -28,6 +28,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Table(name = "inventory")
 @XmlRootElement
 @NamedQueries({
+    @NamedQuery(name = "Inventory.findByStationID", query = "SELECT i FROM Inventory i WHERE i.stationID = :stationID"),
     @NamedQuery(name = "Inventory.findAll", query = "SELECT i FROM Inventory i"),
     @NamedQuery(name = "Inventory.findByInventoryID", query = "SELECT i FROM Inventory i WHERE i.inventoryID = :inventoryID"),
     @NamedQuery(name = "Inventory.findByCurrentAmount", query = "SELECT i FROM Inventory i WHERE i.currentAmount = :currentAmount")})

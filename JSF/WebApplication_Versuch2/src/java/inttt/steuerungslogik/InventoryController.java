@@ -17,6 +17,7 @@ import javax.faces.convert.FacesConverter;
 import javax.faces.model.DataModel;
 import javax.faces.model.ListDataModel;
 import javax.faces.model.SelectItem;
+import java.util.List;
 
 @Named("inventoryController")
 @SessionScoped
@@ -191,6 +192,20 @@ public class InventoryController implements Serializable {
     public Inventory getInventory(java.lang.Integer id) {
         return ejbFacade.find(id);
     }
+    
+    //#######################################################
+    // neue eingefügte Funktion##############################
+    public String prepareInventoryByStation(){
+        current = (Inventory) getItems().getRowData();
+        selectedItemIndex = pagination.getPageFirstItem() + getItems().getRowIndex();
+        return "Stationsbestand";
+    }
+    
+    public List<Inventory> getInventoryByStation(java.lang.Integer stationID){
+        
+        return ejbFacade.inventoryByStation(stationID);
+    }
+    //#######################################################
 
     @FacesConverter(forClass = Inventory.class)
     public static class InventoryControllerConverter implements Converter {

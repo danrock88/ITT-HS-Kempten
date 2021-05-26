@@ -9,6 +9,7 @@ import inttt.datenlogik.Inventory;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import java.util.List;
 
 /**
  *
@@ -28,5 +29,14 @@ public class InventoryFacade extends AbstractFacade<Inventory> {
     public InventoryFacade() {
         super(Inventory.class);
     }
+    
+    //###### eigene Methode #####
+    public List<Inventory> inventoryByStation(java.lang.Integer stationID){
+        List<Inventory> inv = em.createNamedQuery("Inventory.findByStationID")
+                .setParameter("stationID", stationID)
+                .getResultList();
+        return inv;
+    }
+    //#####
     
 }
