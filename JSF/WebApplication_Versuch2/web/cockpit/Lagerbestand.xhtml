@@ -35,7 +35,7 @@
                             <f:facet name="header">
                                 <h:outputText value="Standort"/>
                             </f:facet>
-                            <h:dataTable value="#{stationController.getStation(item.stationID.stationID)}" var="station">
+                            <h:dataTable value="#{stationController.getStation(item.stationID)}" var="station">
                                 <h:column>
                                     <h:outputText value="#{station.location}"/>
                                 </h:column>
@@ -51,7 +51,7 @@
                             <f:facet name="header">
                                 <h:outputText value="Produktbezeichnung"/>
                             </f:facet>
-                            <h:dataTable value="#{productsController.getProducts(item.productID.productID)}" var="product">
+                            <h:dataTable value="#{productsController.getProducts(item.productID)}" var="product">
                                 <h:column>
                                     <h:outputText value="#{product.name}"/>
                                 </h:column>

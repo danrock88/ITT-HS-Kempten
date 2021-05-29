@@ -12,8 +12,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
@@ -28,9 +26,10 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Table(name = "inventory")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Inventory.findByStationID", query = "SELECT i FROM Inventory i WHERE i.stationID = :stationID"),
     @NamedQuery(name = "Inventory.findAll", query = "SELECT i FROM Inventory i"),
     @NamedQuery(name = "Inventory.findByInventoryID", query = "SELECT i FROM Inventory i WHERE i.inventoryID = :inventoryID"),
+    @NamedQuery(name = "Inventory.findByStationID", query = "SELECT i FROM Inventory i WHERE i.stationID = :stationID"),
+    @NamedQuery(name = "Inventory.findByProductID", query = "SELECT i FROM Inventory i WHERE i.productID = :productID"),
     @NamedQuery(name = "Inventory.findByCurrentAmount", query = "SELECT i FROM Inventory i WHERE i.currentAmount = :currentAmount")})
 public class Inventory implements Serializable {
 
@@ -42,14 +41,16 @@ public class Inventory implements Serializable {
     private Integer inventoryID;
     @Basic(optional = false)
     @NotNull
+    @Column(name = "stationID")
+    private int stationID;
+    @Basic(optional = false)
+    @NotNull
+    @Column(name = "productID")
+    private int productID;
+    @Basic(optional = false)
+    @NotNull
     @Column(name = "currentAmount")
     private int currentAmount;
-    @JoinColumn(name = "productID", referencedColumnName = "productID")
-    @ManyToOne(optional = false)
-    private Products productID;
-    @JoinColumn(name = "stationID", referencedColumnName = "stationID")
-    @ManyToOne(optional = false)
-    private Station stationID;
 
     public Inventory() {
     }
@@ -58,8 +59,10 @@ public class Inventory implements Serializable {
         this.inventoryID = inventoryID;
     }
 
-    public Inventory(Integer inventoryID, int currentAmount) {
+    public Inventory(Integer inventoryID, int stationID, int productID, int currentAmount) {
         this.inventoryID = inventoryID;
+        this.stationID = stationID;
+        this.productID = productID;
         this.currentAmount = currentAmount;
     }
 
@@ -71,28 +74,28 @@ public class Inventory implements Serializable {
         this.inventoryID = inventoryID;
     }
 
+     public int getStationID() {
+        return stationID;
+    }
+
+    public void setStationID(int stationID) {
+        this.stationID = stationID;
+    }
+
+    public int getProductID() {
+        return productID;
+    }
+
+    public void setProductID(int productID) {
+        this.productID = productID;
+    }
+
     public int getCurrentAmount() {
         return currentAmount;
     }
 
     public void setCurrentAmount(int currentAmount) {
         this.currentAmount = currentAmount;
-    }
-
-    public Products getProductID() {
-        return productID;
-    }
-
-    public void setProductID(Products productID) {
-        this.productID = productID;
-    }
-
-    public Station getStationID() {
-        return stationID;
-    }
-
-    public void setStationID(Station stationID) {
-        this.stationID = stationID;
     }
 
     @Override

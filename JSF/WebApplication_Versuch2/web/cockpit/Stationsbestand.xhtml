@@ -19,8 +19,8 @@
                 </h:panelGroup>
                 <h:outputText escape="false" value="#{bundle.ListInventoryEmpty}" rendered="#{inventoryController.items.rowCount == 0}"/>
                 <h:panelGroup rendered="#{inventoryController.items.rowCount > 0}">
-                    <h:dataTable value="#{inventoryController.getInventoryByStation(inventoryController.selected.stationID.stationID)}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
-                        <!--
+                    <h:dataTable value="#{inventoryController.getInventoryByStation(inventoryController.selected.stationID)}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        
                         <h:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListInventoryTitle_inventoryID}"/>
@@ -33,7 +33,7 @@
                             <f:facet name="header">
                                 <h:outputText value="Standort"/>
                             </f:facet>
-                            <h:dataTable value="#{stationController.getStation(item.stationID.stationID)}" var="station">
+                            <h:dataTable value="#{stationController.getStation(item.stationID)}" var="station">
                                 <h:column>
                                     <h:outputText value="#{station.location}"/>
                                 </h:column>
@@ -49,7 +49,7 @@
                             <f:facet name="header">
                                 <h:outputText value="Produktbezeichnung"/>
                             </f:facet>
-                            <h:dataTable value="#{productsController.getProducts(item.productID.productID)}" var="product">
+                            <h:dataTable value="#{productsController.getProducts(item.productID)}" var="product">
                                 <h:column>
                                     <h:outputText value="#{product.name}"/>
                                 </h:column>
@@ -66,7 +66,7 @@
                             </f:facet>
                             <h:outputText value="#{item.currentAmount}"/>
                         </h:column>
-                         -->
+                        
                     </h:dataTable>
                 </h:panelGroup>
                 <br />

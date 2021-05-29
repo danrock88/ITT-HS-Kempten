@@ -7,9 +7,8 @@ package inttt.datenlogik;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.util.Collection;
+import java.util.Date;
 import javax.persistence.Basic;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -17,12 +16,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -59,11 +56,7 @@ public class Products implements Serializable {
     @NotNull
     @Column(name = "durability")
     private int durability;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "products")
-    private Collection<Refill> refillCollection;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "productID")
-    private Collection<Inventory> inventoryCollection;
-
+  
     public Products() {
     }
 
@@ -108,24 +101,6 @@ public class Products implements Serializable {
 
     public void setDurability(int durability) {
         this.durability = durability;
-    }
-
-    @XmlTransient
-    public Collection<Refill> getRefillCollection() {
-        return refillCollection;
-    }
-
-    public void setRefillCollection(Collection<Refill> refillCollection) {
-        this.refillCollection = refillCollection;
-    }
-
-    @XmlTransient
-    public Collection<Inventory> getInventoryCollection() {
-        return inventoryCollection;
-    }
-
-    public void setInventoryCollection(Collection<Inventory> inventoryCollection) {
-        this.inventoryCollection = inventoryCollection;
     }
 
     @Override
