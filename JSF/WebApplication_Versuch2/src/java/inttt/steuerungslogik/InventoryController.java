@@ -205,6 +205,20 @@ public class InventoryController implements Serializable {
         
         return ejbFacade.inventoryByStation(stationID);
     }
+    
+    //Produkt
+    
+    public List<Inventory> getInventoryByProductOrder (java.lang.Integer productID){
+        return ejbFacade.getItemOrderBy("productID",productID, "stationID");
+    }
+    
+    public String prepareInventoryByProduct(){
+        
+        current = (Inventory) getItems().getRowData();
+        selectedItemIndex = pagination.getPageFirstItem() + getItems().getRowIndex();
+        return "Produktbestand";
+    }
+    
     //#######################################################
 
     @FacesConverter(forClass = Inventory.class)

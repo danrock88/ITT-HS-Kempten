@@ -61,4 +61,18 @@ public abstract class AbstractFacade<T> {
         return ((Long) q.getSingleResult()).intValue();
     }
     
+    //##### eigener Code #####
+    
+     public List<T> getItemOrderBy(java.lang.String attribute, java.lang.Integer value, java.lang.String order){
+         javax.persistence.criteria.CriteriaQuery cq = getEntityManager().getCriteriaBuilder().createQuery();
+         javax.persistence.criteria.Root<T> rt = cq.from(entityClass);
+         cq.select(rt);
+         cq.where(rt.get(attribute).in(value));
+         cq.orderBy(getEntityManager().getCriteriaBuilder().asc(rt.get(order)));
+         
+         return getEntityManager().createQuery(cq).getResultList();
+     }
+    
+    
+    
 }
