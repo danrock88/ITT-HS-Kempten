@@ -37,6 +37,13 @@ public class InventoryFacade extends AbstractFacade<Inventory> {
                 .getResultList();
         return inv;
     }
+    
+    public List<Inventory> inventoryByProduct(java.lang.Integer productID){
+        List<Inventory> inv = em.createNamedQuery("Inventory.findByProductID")
+                .setParameter("productID", productID)
+                .getResultList();
+        return inv;
+    }
     //#####
     
 }

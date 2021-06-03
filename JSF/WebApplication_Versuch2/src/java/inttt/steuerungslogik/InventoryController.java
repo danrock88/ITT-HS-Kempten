@@ -6,6 +6,7 @@ import inttt.steuerungslogik.util.PaginationHelper;
 import inttt.geschaeftslogik.InventoryFacade;
 
 import java.io.Serializable;
+import java.util.Iterator;
 import java.util.ResourceBundle;
 import javax.ejb.EJB;
 import javax.inject.Named;
@@ -217,6 +218,29 @@ public class InventoryController implements Serializable {
         current = (Inventory) getItems().getRowData();
         selectedItemIndex = pagination.getPageFirstItem() + getItems().getRowIndex();
         return "Produktbestand";
+    }
+    
+    // Gesamtbestand eines Produktes
+    public String prepareInventoryByOneProductAmount(){
+    current = (Inventory) getItems().getRowData();
+    return "GleP";
+    }
+    
+    public Integer getSelectedProductAmount(java.lang.Integer productID){
+        
+        List<Inventory> inventoryList = ejbFacade.inventoryByProduct(productID);
+        int amount = 0;
+        Iterator<Inventory> iterator = inventoryList.iterator();
+        while(iterator.hasNext()){
+           Inventory inv = (Inventory) iterator.next();
+           amount += inv.getCurrentAmount();
+        }
+        return amount;
+    }
+    
+    // Gesamtbestand aller Produkte
+    public String prepareInventoryByAllProductAmount(){
+    return "GlaP";
     }
     
     //#######################################################

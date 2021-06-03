@@ -78,12 +78,12 @@
                             <h:outputText value=" "/>
                             <h:commandLink action="#{inventoryController.prepareInventoryByProduct()}" value="Lagerbestand dieses Produkts"/>
                             <h:outputText value=" "/>
-                            <h:commandLink action="#{inventoryController.destroy}" value="#{bundle.ListInventoryDestroyLink}"/>
+                            <h:commandLink action="#{inventoryController.prepareInventoryByOneProductAmount()}" value="Gesamtlagerbestand dieses Produktes"/> 
                         </h:column>
                     </h:dataTable>
                 </h:panelGroup>
                 <br />
-                <h:commandLink action="#{inventoryController.prepareCreate}" value="#{bundle.ListInventoryCreateLink}"/>
+                <h:commandLink action="#{inventoryController.prepareInventoryByAllProductAmount()}" value="Gesamtlagerbestand aller Produkte"/>
                 <br />
                 <br />
                 <h:link outcome="/index" value="#{bundle.ListInventoryIndexLink}"/>
