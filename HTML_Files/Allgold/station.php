@@ -9,18 +9,11 @@ class station
    public function __construct()
    {
       //***TODO*** --> insert your database connection:
-      $this->db = new mysqli("192.168.101.221","grp115","ITTgrp115");
+      $this->db = new mysqli("localhost","inttentwickler","ITT11pra!", "Allgold");
 
       if (mysqli_connect_errno())
       {
       	die("error while connection to database!:".mysqli_connect_error());
-      }
-
-      $this->db->select_db("grp115_IKS");
-
-      if($this->db->errno)
-      {
-      	die ($this->db->error);
       }
    }
 

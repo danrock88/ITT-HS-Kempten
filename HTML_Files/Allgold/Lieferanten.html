@@ -1,0 +1,71 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>Allgold Management</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link href="css/main.css" rel="stylesheet" />
+    <link href="css/nav.css" rel="stylesheet" />
+    <script type="text/javascript"></script>
+  </head>
+  <body>
+    <div id="main">
+      <div id="trailer">
+        <img src="media/trailer.jpg" width="750" height="150" alt="trailer">
+      </div>
+      <div id="menuetop">
+        <ul id="menu">
+          
+          <li>
+            <a href="Verkaufsstellen.html"> Verkaeufer </a>
+          </li>
+          <li>
+            <a href="Lieferanten.html"> Lieferanten </a>
+          </li>
+          <li>
+            <a href="http://localhost:8080/WebApplication_Versuch2/faces/cockpit/Lagerbestand.xhtml"> Lagerbestand </a>
+          </li>
+          <li>
+           <a href="http://localhost:8080/WebApplication_Versuch2/faces/cockpit/cockpit.xhtml">Cockpit</a>
+          </li>
+        </ul>
+      </div>
+      <!-- page content -->
+      <div id="content">
+        <fieldset>
+        <input type="hidden" name="action" value = "GET">
+
+        <!-- Form Name -->
+        <legend>Produkte auffüllen</legend>
+
+
+
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="description">Stations ID</label>  
+          <div class="col-md-4">
+            <input id="stationID" name="stationID" placeholder="stationID" class="form-control input-md" required="" type="text">
+            <span class="help-block">Bitte geben Sie die ID Ihrer Verkaufsstelle ein</span>  
+          </div>
+        </div>
+       
+        <button class"button button2" type="button" onclick="window.location.href='Produktauffüllung.html';"> Produktauffüllung erfassen </button>
+
+
+    </div>  
+        <div id="content">
+
+          <fieldset>
+            <input type="hidden" name="action">
+            <legend>Auffüllplan</legend>
+            <button class"button button2" onclick="window.location.href='Auffüllplan.html';"> Plan für die Produktauffüllung ausgeben </button>
+          </fieldset>
+        </div> 
+     
+      
+  
+    <div id="menuefooter" class="clmenuefooter">
+      </div>
+      <div id="bottom">
+      </div>
+  </body>
+</html>

@@ -6,6 +6,7 @@
 package inttt.geschaeftslogik;
 
 import inttt.datenlogik.Products;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -29,4 +30,8 @@ public class ProductsFacade extends AbstractFacade<Products> {
         super(Products.class);
     }
     
+    public List<Products> allProducts(){
+        List<Products> prod= em.createNamedQuery("Products.findAll").getResultList();
+        return prod;
+    }
 }

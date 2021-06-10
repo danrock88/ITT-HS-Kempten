@@ -1,12 +1,11 @@
 <!DOCTYPE HTML>
 <html>
   <head>
-    <title>Allgold Supply Center</title>
+    <title>Allgold Management</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link href="css/main.css" rel="stylesheet" />
     <link href="css/nav.css" rel="stylesheet" />
-    <script type="text/javascript" src="js/station.js"></script>
   </head>
   <body>
     <div id="main">
@@ -15,40 +14,51 @@
       </div>
       <div id="menuetop">
         <ul id="menu">
+          
           <li>
-           <a href="index.html">HOME</a>
+            <a href="Verkaufsstellen.html"> Verkaeufer </a>
+          </li>
+          <li>
+            <a href="Lieferanten.html"> Lieferanten </a>
+          </li>
+          <li>
+            <a href="http://localhost:8080/WebApplication_Versuch2/faces/cockpit/Lagerbestand.xhtml"> Lagerbestand </a>
+          </li>
+          <li>
+           <a href="http://localhost:8080/WebApplication_Versuch2/faces/cockpit/cockpit.xhtml">Cockpit</a>
           </li>
         </ul>
       </div>
       <!-- page content -->
-      <div id="content">  
+      <div id="content">
+
+       <div id="content">  
         <fieldset>
         <input type="hidden" name="action" value = "GET">
 
         <!-- Form Name -->
-        <legend>Standortsuche</legend>
+        <legend>Verkauf erfassen</legend>
 
         <!-- Text input-->
         <div class="form-group">
           <label class="col-md-4 control-label" for="description">Stations ID</label>  
           <div class="col-md-4">
             <input id="stationID" name="stationID" placeholder="stationID" class="form-control input-md" required="" type="text">
-            <span class="help-block">Bitte geben Sie die ID der Verkaufsstelle ein</span>  
+            <span class="help-block">Bitte geben Sie die ID Ihrer Verkaufsstelle ein</span>  
           </div>
         </div>
 
         <!-- Button -->
         <div class="form-group">
-          <label class="col-md-4 control-label" for="open">Verkaufsstellen</label>
           <div class="col-md-4">
-            <button onclick="getCoords()" id="open" name="open" class="btn btn-primary">position bestimmen</button>
+            <button onclick="getCoords()" id="open" name="open" class="btn btn-primary">OK</button>
           </div>
         </div>
 
         </fieldset>
-        <fieldset id = "list">
-          <legend>Standort</legend>  
-        </fieldset>
+      
+      </div>
+        
       </div>
       <div id="menuefooter" class="clmenuefooter">
       </div>
@@ -57,3 +67,6 @@
     </div>  
   </body>
 </html>
+
+
+

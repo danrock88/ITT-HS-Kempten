@@ -1,10 +1,10 @@
 <?php
  
 // include necessary classes 
-include('station.php');
+include('products.php');
 
 
-$station = new station();
+$station = new products();
 $data = array_merge($_GET, $_POST);
 $method = $data['action'];
 $retlnk = '<br> <a href="index.html"> zur&uuml;ck zur Homeseite </a>';
@@ -15,31 +15,27 @@ switch ($method)
 {
   case 'GET':
 
+    /* 
     if(!empty($data['stationID']))
     {
     	$sql = $station->getCoordinates($data['stationID']);
         header('Content-type: application/json; charset=utf-8'); 
-        echo json_encode($sql);
+        echo json_encode($sql); 
         break;
     }
-
-    if(!empty($data['location']))
-    {
-        $sql = $station->findByLocation($data['location']);
-        header('Content-type: application/json; charset=utf-8');
-        echo json_encode($sql);
-        break;
-    }
+    */
 
     else
     {
-    	$sql = $station->getAllStations();
+    	$sql = $products->getAllProducts();
         header('Content-type: application/json; charset=utf-8'); 
         echo json_encode($sql);
         break;
     }
 
     break;
+
+    /*
 
   case 'POST':
     $sql = $station->addStation($data); 
@@ -64,6 +60,7 @@ switch ($method)
     $sql = $station->removeStation($data['stationID']); 
     echo $sql.$retlnk;
     break;
+    */
 }
 
 

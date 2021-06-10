@@ -6,6 +6,7 @@ import inttt.steuerungslogik.util.PaginationHelper;
 import inttt.geschaeftslogik.StationFacade;
 
 import java.io.Serializable;
+import java.util.List;
 import java.util.ResourceBundle;
 import javax.ejb.EJB;
 import javax.inject.Named;
@@ -190,6 +191,12 @@ public class StationController implements Serializable {
 
     public Station getStation(java.lang.Integer id) {
         return ejbFacade.find(id);
+    }
+    
+    //#####eigene Funktionen
+    
+    public List<String> getLocations(){
+        return ejbFacade.getLocationDistinct();
     }
 
     @FacesConverter(forClass = Station.class)

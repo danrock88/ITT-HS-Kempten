@@ -27,6 +27,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Table(name = "station")
 @XmlRootElement
 @NamedQueries({
+    @NamedQuery(name = "Station.getLocationDistinct", query = "SELECT DISTINCT s.location FROM Station s"),
     @NamedQuery(name = "Station.findAll", query = "SELECT s FROM Station s"),
     @NamedQuery(name = "Station.findByStationID", query = "SELECT s FROM Station s WHERE s.stationID = :stationID"),
     @NamedQuery(name = "Station.findByCoordsA", query = "SELECT s FROM Station s WHERE s.coordsA = :coordsA"),

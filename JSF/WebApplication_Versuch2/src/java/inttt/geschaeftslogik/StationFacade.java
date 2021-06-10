@@ -6,6 +6,7 @@
 package inttt.geschaeftslogik;
 
 import inttt.datenlogik.Station;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -27,6 +28,10 @@ public class StationFacade extends AbstractFacade<Station> {
 
     public StationFacade() {
         super(Station.class);
+    }
+    public List<String> getLocationDistinct(){
+        List<String> location= em.createNamedQuery("Station.getLocationDistinct").getResultList();
+        return location;
     }
     
 }

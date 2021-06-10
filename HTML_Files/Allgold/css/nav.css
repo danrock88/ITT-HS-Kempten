@@ -5,7 +5,7 @@ padding: 0 0 20px 10px;
 
 }
 
-/* Formatierung des textbasierten Menüs */
+/* Formatierung des textbasierten Menï¿½s */
 #menu ul, #menu li
 {
 margin: 0;
@@ -14,7 +14,7 @@ display: inline;
 list-style-type: none;
 }
 
-/* Formatierung der Links (Menüeinträge) */
+/* Formatierung der Links (Menï¿½eintrï¿½ge) */
 #menu a:link, #menu a:visited
 {
 float: left;
@@ -36,16 +36,4 @@ background: #D9EAB3;
 */
 text-decoration: underline;
 color: #004000;
-}
-
-
-
-
-
-/* IE-Hack für die Breite */
-
-*html ul.menu ul {
-
-    width:180px;
-
 }

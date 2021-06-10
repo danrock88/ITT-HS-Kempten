@@ -1,9 +1,10 @@
 
 
 body {
-	text-align: center;
-	background-color: #D9EAB3;
-	font-family: Verdana, Arial;
+	font-family: Arial, Helvetica, sans-serif;
+    color: #3a4f54;
+    background-color: #D9EAB3;
+    font-size: small;
 }
 
 /* DIV-Box mit den Inhalten */
@@ -23,14 +24,14 @@ body {
 	padding: 5px;
 }
 
-/* Box für das obere Menü */
+/* Box fï¿½r das obere Menï¿½ */
 #menuetop{
 	border: 0px solid #036; 
 	background-color: #B8DB7D;
 	height: 31px;
 }
 
-/* Der Seitentitel nochmal unterhalb des Menüs */
+/* Der Seitentitel nochmal unterhalb des Menï¿½s */
 #titel {
 	border: 0px solid blue;
 	padding-top: 5px;
@@ -41,7 +42,7 @@ body {
 
 
 
-/* Box für den eigentlichen Content */
+/* Box fï¿½r den eigentlichen Content */
 #content {
  	border: 0px solid black;  
 	margin-left: 15px; 
@@ -51,7 +52,7 @@ body {
 
 
 
-/* Das untere Menü */
+/* Das untere Menï¿½ */
 #menuefooter{
 	clear: both;
 	border: 0px solid green; 
@@ -78,14 +79,14 @@ body {
 	color: #000000;
 	}
 
-/* Der Platzhalter unter dem unteren Menü */
+/* Der Platzhalter unter dem unteren Menï¿½ */
 #bottom{
 	border: 0px solid grey; 
 	height: 20px;
 	}
 	
 	
-/* Formatierungen für die Inhaltselemente */
+/* Formatierungen fï¿½r die Inhaltselemente */
 .bodytext {
 	font-size: 11pt;
 	}

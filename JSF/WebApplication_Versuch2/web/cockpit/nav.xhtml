@@ -4,9 +4,12 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
     <ul id="menu">
         <li>
-            <h:link outcome="Sellers" value="Verkaeufer" />
-            <h:link outcome="Products" value="Produktanalyse" />
+            <h:outputLink value="http://localhost/WebServer/Allgold/Verkaufsstellen.html">Verkaeufer</h:outputLink>
+            <!--<h:link outcome="Sellers" value="Verkaeufer" />-->
+            <!--<h:link outcome="Products" value="Lieferanten" />-->
+            <h:outputLink value="http://localhost/WebServer/Allgold/Lieferanten.html">Lieferanten</h:outputLink>
             <h:link outcome="Lagerbestand" value="Lagerbestand" />
+            <h:link outcome="cockpit" value="Cockpit"/>
         </li>
     </ul>
       
