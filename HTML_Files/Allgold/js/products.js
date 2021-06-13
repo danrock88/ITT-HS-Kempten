@@ -72,14 +72,14 @@ alert("findStation");
 }
 */
 
-/*
-function getCoords()
+
+function getNameByID($productID)
 {
     
-	var url = "stationREST.php";
+	var url = "productsREST.php";
 	var method = "action=GET";
-	var descVal = document.getElementById("stationID").value;
-	var descName = document.getElementById("stationID").name;
+	var descVal = $productID //document.getElementById("stationID").value;
+	var descName = "productID" //document.getElementById("stationID").name;
 	url += "?"+method+"&"+descName+"="+descVal;
 
 	alert(url);
@@ -90,28 +90,16 @@ function getCoords()
 	{
 		if(request.status == 200)
 		{
-			var stationlist = request.responseText;
-			
-
-                //getTable header for data
-				var url2 = "includes/stationtable.json";
-	            var request2 = new XMLHttpRequest();
-	            request2.open("GET", url2);
-	            request2.onload = function()
-	            {
-		           if(request2.status == 200)
-		           {
-			           var stationtable = request2.responseText;
-			           listStation(stationlist,stationtable);
-		            }
-	            };
-	            request2.send(null);
-
+			var data = request.responseText;
+			var jsonResponse = JSON.parse(data);
+			var name = jsonResponse[0];
+			var value = name["name"];
+			return value;
 		}
 	};
 	request.send(null);
 }
-*/
+
 
 function listProducts(productslist, getProductstable)
 {alert(productslist+getsproductstable);

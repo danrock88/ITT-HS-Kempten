@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link href="css/main.css" rel="stylesheet" />
     <link href="css/nav.css" rel="stylesheet" />
+    <script type="text/javascript" src="js/inventory.js"></script>
     <script type="text/javascript" src="js/products.js"></script>
   </head>
   <body>
@@ -15,7 +16,6 @@
       </div>
       <div id="menuetop">
         <ul id="menu">
-          
           <li>
             <a href="Verkaufsstellen.html"> Verkaeufer </a>
           </li>
@@ -32,8 +32,6 @@
       </div>
       <!-- page content -->
       <div id="content">
-
-       <div id="content">  
         <fieldset>
         <input type="hidden" name="action" value = "GET">
 
@@ -52,17 +50,25 @@
         <!-- Button -->
         <div class="form-group">
           <div class="col-md-4">
-            <button onclick="allproducts()" id="open" name="open" class="btn btn-primary">OK</button>
+            <button onclick="findInventory()" id="open" name="open" class="btn btn-primary">OK</button>
           </div>
         </div>
-
         </fieldset>
+
 
         <fieldset id = "list">
         <legend>Produkte</legend>
         </fieldset>
+
+        <!-- Button -->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="open">Verkauf</label>
+          <div class="col-md-4">
+            <button id="open" name="open" class="btn btn-primary">buchen</button>
+          </div>
+        </div>
       
-      </div>
+
         
       </div>
       <div id="menuefooter" class="clmenuefooter">

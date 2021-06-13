@@ -1,10 +1,11 @@
 <?php
  
 // include necessary classes 
-include('products.php');
+
+include('inventory.php');
 
 
-$products = new products();
+$inventory = new inventory();
 $data = array_merge($_GET, $_POST);
 $method = $data['action'];
 $retlnk = '<br> <a href="index.html"> zur&uuml;ck zur Homeseite </a>';
@@ -15,19 +16,18 @@ switch ($method)
 {
   case 'GET':
 
-    
-    if(!empty($data['productID']))
+    if(!empty($data['stationID']))
     {
-    	$sql = $products->getName($data['productID']);
-        header('Content-type: application/json; charset=utf-8'); 
-        echo json_encode($sql); 
+        error_log(print_r($data,true));
+        $sql = $inventory->findByStationID($data['stationID']);
+        header('Content-type: application/json; charset=utf-8');
+        echo json_encode($sql);
         break;
     }
-    
 
     else
     {
-    	$sql = $products->getAllProducts();
+    	$sql = $inventory->getInventory();
         header('Content-type: application/json; charset=utf-8'); 
         echo json_encode($sql);
         break;

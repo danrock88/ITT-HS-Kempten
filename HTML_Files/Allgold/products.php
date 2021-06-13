@@ -60,8 +60,8 @@ class products
 
    public function getName($productID)
    {
-      $allProducts = array();
-      $stmt = "SELECT * FROM products WHERE productID = ".$sproductID.";";
+      $products = array();
+      $stmt = "SELECT name FROM products WHERE productID = ".$productID.";";
       $result = $this->db->query($stmt);
 
         if(empty($result))
@@ -69,12 +69,14 @@ class products
            return "your statement: ".$stmt."<br /> received result:".$result;
         }
 
-      while ($row = $result->fetch_assoc()) 
+       while ($row = $result->fetch_assoc()) 
       {
-        $allProducts[] = $row;
+        $products[] = $row;
       }
 
-      return $allProducts;
+
+      error_log( print_r( $products, true ) );
+      return $products;
       //return $row = $result->fetch_assoc(); 
    }
 }
