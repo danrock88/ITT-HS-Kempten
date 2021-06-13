@@ -18,7 +18,7 @@ switch ($method)
 
     if(!empty($data['stationID']))
     {
-        error_log(print_r($data,true));
+        
         $sql = $inventory->findByStationID($data['stationID']);
         header('Content-type: application/json; charset=utf-8');
         echo json_encode($sql);
@@ -34,6 +34,22 @@ switch ($method)
     }
 
     break;
+
+  case 'PUT':
+  
+    $sql = $inventory->updateInventory($data);
+    if($sql == "OK")
+    {
+        error_log(print_r($data,true));
+        header('Content-type: application/json; charset=utf-8'); 
+        echo json_encode($send);        
+    } 
+    else
+    {
+        echo $sql;
+    }
+    break;
+
 }
 
 

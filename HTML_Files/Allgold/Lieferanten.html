@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link href="css/main.css" rel="stylesheet" />
     <link href="css/nav.css" rel="stylesheet" />
-    <script type="text/javascript"></script>
+    <script type="text/javascript" src="js/inventory.js"></script>
+    <script type="text/javascript" src="js/products.js"></script>
   </head>
   <body>
     <div id="main">
@@ -40,26 +41,54 @@
 
 
 
+         <!-- Text input-->
         <div class="form-group">
           <label class="col-md-4 control-label" for="description">Stations ID</label>  
           <div class="col-md-4">
             <input id="stationID" name="stationID" placeholder="stationID" class="form-control input-md" required="" type="text">
-            <span class="help-block">Bitte geben Sie die ID Ihrer Verkaufsstelle ein</span>  
+            <span class="help-block">Bitte geben Sie die ID der Verkaufsstelle ein</span>  
           </div>
         </div>
        
-        <button class"button button2" type="button" onclick="window.location.href='Produktauffüllung.html';"> Produktauffüllung erfassen </button>
+        <!-- Button -->
+        <div class="form-group">
+          <div class="col-md-4">
+            <button onclick="findInventoryRefill()" id="open" name="open" class="btn btn-primary">OK</button>
+          </div>
+        </div>
+        </fieldset>
+
+        <fieldset id = "list">
+        <legend>Produkte</legend>
+        </fieldset>
+
+        <!-- Button -->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="open">Auffüllung</label>
+          <div class="col-md-4">
+            <button onclick=updateInventoryRefill() id="open" name="open" class="btn btn-primary">erfassen</button>
+          </div>
+        </div>
+
+
+<div class="space"></div>
+
+
 
 
     </div>  
-        <div id="content">
+    
+        <!-- Button -->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="open">Auffüllung</label>
+          <div class="col-md-4">
+            <button onclick=findInventoryMissingProducts() id="open" name="open" class="btn btn-primary">Plan für die Produktauffüllung ausgeben</button>
+          </div>
+        </div>
 
-          <fieldset>
-            <input type="hidden" name="action">
-            <legend>Auffüllplan</legend>
-            <button class"button button2" onclick="window.location.href='Auffüllplan.html';"> Plan für die Produktauffüllung ausgeben </button>
-          </fieldset>
-        </div> 
+         <fieldset id = "listMissingProducts">
+        <legend>Auffüllen</legend>
+        </fieldset>
      
       
   

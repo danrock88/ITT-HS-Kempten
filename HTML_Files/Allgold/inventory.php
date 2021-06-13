@@ -76,7 +76,7 @@ class inventory
       public function findByStationID($stationID)
    {
       $Inventory = array();
-      $stmt = "SELECT * FROM inventory WHERE stationID = '1';";
+      $stmt = "SELECT * FROM inventory WHERE stationID = '$stationID';";
       $result = $this->db->query($stmt);
         if(empty($result))
         {
@@ -97,16 +97,18 @@ class inventory
   public function updateInventory($data)
   {
     //create insert string
-    $stmt = "UPDATE inventory SET currentAmount = '".$data['currentAmount']."',
-                            WHERE stationID = ".$data['stationID']." ,
-                            AND productID = ".$data['productID']."
+    $stmt = "UPDATE inventory SET currentAmount = '".$data['currentAmount']."'
+                            WHERE stationID = '".$data['stationID']."' 
+                            AND productID = '".$data['productID']."'
                             ;";
 
     //commit db request
     $result = $this->db->query($stmt);
+    error_log(print_r($stmt,true));
 
     if($result == 1)
     {
+      error_log(print_r("DEBUG: Query OK",true));
       return "OK";
     }
 

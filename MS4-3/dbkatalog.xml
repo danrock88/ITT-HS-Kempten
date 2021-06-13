@@ -6,12 +6,42 @@
 		<field Field="productID" Type="int(10)" Null="NO" Key="MUL" Extra="" Comment="" />
 		<field Field="stationID" Type="int(10)" Null="NO" Key="MUL" Extra="" Comment="" />
 		<field Field="currentAmount" Type="int(11)" Null="NO" Key="" Extra="" Comment="" />
-		<key Table="inventory" Non_unique="0" Key_name="PRIMARY" Seq_in_index="1" Column_name="inventoryID" Collation="A" Cardinality="0" Null="" Index_type="BTREE" Comment="" Index_comment="" />
-		<key Table="inventory" Non_unique="1" Key_name="FK_stationID" Seq_in_index="1" Column_name="stationID" Collation="A" Cardinality="0" Null="" Index_type="BTREE" Comment="" Index_comment="" />
-		<key Table="inventory" Non_unique="1" Key_name="FK_productID" Seq_in_index="1" Column_name="productID" Collation="A" Cardinality="0" Null="" Index_type="BTREE" Comment="" Index_comment="" />
-		<options Name="inventory" Engine="InnoDB" Version="10" Row_format="Dynamic" Rows="0" Avg_row_length="0" Data_length="16384" Max_data_length="0" Index_length="32768" Data_free="0" Auto_increment="1" Create_time="2021-04-07 13:54:02" Collation="latin1_swedish_ci" Create_options="" Comment="" />
+		<key Table="inventory" Non_unique="0" Key_name="PRIMARY" Seq_in_index="1" Column_name="inventoryID" Collation="A" Cardinality="4" Null="" Index_type="BTREE" Comment="" Index_comment="" />
+		<key Table="inventory" Non_unique="1" Key_name="FK_stationID" Seq_in_index="1" Column_name="stationID" Collation="A" Cardinality="3" Null="" Index_type="BTREE" Comment="" Index_comment="" />
+		<key Table="inventory" Non_unique="1" Key_name="FK_productID" Seq_in_index="1" Column_name="productID" Collation="A" Cardinality="3" Null="" Index_type="BTREE" Comment="" Index_comment="" />
+		<options Name="inventory" Engine="InnoDB" Version="10" Row_format="Dynamic" Rows="4" Avg_row_length="4096" Data_length="16384" Max_data_length="0" Index_length="32768" Data_free="0" Auto_increment="26" Create_time="2021-05-28 10:36:31" Update_time="2021-06-13 11:33:19" Collation="latin1_swedish_ci" Create_options="" Comment="" />
 	</table_structure>
 	<table_data name="inventory">
+	<row>
+		<field name="inventoryID">1</field>
+		<field name="productID">1</field>
+		<field name="stationID">1</field>
+		<field name="currentAmount">9</field>
+	</row>
+	<row>
+		<field name="inventoryID">22</field>
+		<field name="productID">7</field>
+		<field name="stationID">1</field>
+		<field name="currentAmount">2</field>
+	</row>
+	<row>
+		<field name="inventoryID">23</field>
+		<field name="productID">5</field>
+		<field name="stationID">5</field>
+		<field name="currentAmount">5</field>
+	</row>
+	<row>
+		<field name="inventoryID">24</field>
+		<field name="productID">5</field>
+		<field name="stationID">3</field>
+		<field name="currentAmount">8</field>
+	</row>
+	<row>
+		<field name="inventoryID">25</field>
+		<field name="productID">5</field>
+		<field name="stationID">7</field>
+		<field name="currentAmount">2</field>
+	</row>
 	</table_data>
 	<table_structure name="products">
 		<field Field="productID" Type="int(11)" Null="NO" Key="PRI" Extra="auto_increment" Comment="" />
@@ -19,7 +49,7 @@
 		<field Field="price" Type="decimal(3,2)" Null="NO" Key="" Extra="" Comment="" />
 		<field Field="durability" Type="int(11)" Null="NO" Key="" Extra="" Comment="" />
 		<key Table="products" Non_unique="0" Key_name="PRIMARY" Seq_in_index="1" Column_name="productID" Collation="A" Cardinality="8" Null="" Index_type="BTREE" Comment="" Index_comment="" />
-		<options Name="products" Engine="InnoDB" Version="10" Row_format="Dynamic" Rows="8" Avg_row_length="2048" Data_length="16384" Max_data_length="0" Index_length="0" Data_free="0" Auto_increment="9" Create_time="2021-03-25 09:03:53" Collation="latin1_swedish_ci" Create_options="" Comment="" />
+		<options Name="products" Engine="InnoDB" Version="10" Row_format="Dynamic" Rows="8" Avg_row_length="2048" Data_length="16384" Max_data_length="0" Index_length="0" Data_free="0" Auto_increment="9" Create_time="2021-05-13 20:37:19" Collation="latin1_swedish_ci" Create_options="" Comment="" />
 	</table_structure>
 	<table_data name="products">
 	<row>
@@ -83,7 +113,7 @@
 		<key Table="refill" Non_unique="0" Key_name="PRIMARY" Seq_in_index="3" Column_name="productID" Collation="A" Cardinality="0" Null="" Index_type="BTREE" Comment="" Index_comment="" />
 		<key Table="refill" Non_unique="1" Key_name="fk_station" Seq_in_index="1" Column_name="stationID" Collation="A" Cardinality="0" Null="" Index_type="BTREE" Comment="" Index_comment="" />
 		<key Table="refill" Non_unique="1" Key_name="fk_products" Seq_in_index="1" Column_name="productID" Collation="A" Cardinality="0" Null="" Index_type="BTREE" Comment="" Index_comment="" />
-		<options Name="refill" Engine="InnoDB" Version="10" Row_format="Dynamic" Rows="0" Avg_row_length="0" Data_length="16384" Max_data_length="0" Index_length="32768" Data_free="0" Auto_increment="1" Create_time="2021-04-30 11:18:32" Collation="latin1_swedish_ci" Create_options="" Comment="" />
+		<options Name="refill" Engine="InnoDB" Version="10" Row_format="Dynamic" Rows="0" Avg_row_length="0" Data_length="16384" Max_data_length="0" Index_length="32768" Data_free="0" Auto_increment="1" Create_time="2021-05-13 20:37:19" Collation="latin1_swedish_ci" Create_options="" Comment="" />
 	</table_structure>
 	<table_data name="refill">
 	</table_data>
@@ -96,7 +126,7 @@
 		<key Table="sale" Non_unique="0" Key_name="PRIMARY" Seq_in_index="1" Column_name="saleID" Collation="A" Cardinality="0" Null="" Index_type="BTREE" Comment="" Index_comment="" />
 		<key Table="sale" Non_unique="0" Key_name="PRIMARY" Seq_in_index="2" Column_name="productID" Collation="A" Cardinality="0" Null="" Index_type="BTREE" Comment="" Index_comment="" />
 		<key Table="sale" Non_unique="0" Key_name="PRIMARY" Seq_in_index="3" Column_name="stationID" Collation="A" Cardinality="0" Null="" Index_type="BTREE" Comment="" Index_comment="" />
-		<options Name="sale" Engine="InnoDB" Version="10" Row_format="Dynamic" Rows="0" Avg_row_length="0" Data_length="16384" Max_data_length="0" Index_length="0" Data_free="0" Create_time="2021-04-30 11:22:19" Collation="latin1_swedish_ci" Create_options="" Comment="" />
+		<options Name="sale" Engine="InnoDB" Version="10" Row_format="Dynamic" Rows="0" Avg_row_length="0" Data_length="16384" Max_data_length="0" Index_length="0" Data_free="0" Create_time="2021-05-13 20:37:19" Collation="latin1_swedish_ci" Create_options="" Comment="" />
 	</table_structure>
 	<table_data name="sale">
 	</table_data>
@@ -105,9 +135,14 @@
 		<field Field="type" Type="int(1)" Null="NO" Key="" Extra="" Comment="" />
 		<field Field="human_machine_id" Type="int(10)" Null="NO" Key="" Extra="" Comment="" />
 		<key Table="seller" Non_unique="0" Key_name="PRIMARY" Seq_in_index="1" Column_name="sellerID" Collation="A" Cardinality="0" Null="" Index_type="BTREE" Comment="" Index_comment="" />
-		<options Name="seller" Engine="InnoDB" Version="10" Row_format="Dynamic" Rows="0" Avg_row_length="0" Data_length="16384" Max_data_length="0" Index_length="0" Data_free="0" Create_time="2021-04-30 11:20:40" Collation="latin1_swedish_ci" Create_options="" Comment="" />
+		<options Name="seller" Engine="InnoDB" Version="10" Row_format="Dynamic" Rows="0" Avg_row_length="0" Data_length="16384" Max_data_length="0" Index_length="0" Data_free="0" Create_time="2021-05-13 20:37:19" Collation="latin1_swedish_ci" Create_options="" Comment="" />
 	</table_structure>
 	<table_data name="seller">
+	<row>
+		<field name="sellerID">1</field>
+		<field name="type">3</field>
+		<field name="human_machine_id">2</field>
+	</row>
 	</table_data>
 	<table_structure name="station">
 		<field Field="stationID" Type="int(10)" Null="NO" Key="PRI" Extra="auto_increment" Comment="" />
@@ -117,7 +152,7 @@
 		<field Field="type" Type="varchar(1)" Null="NO" Key="" Extra="" Comment="" />
 		<field Field="description" Type="varchar(50)" Null="NO" Key="" Extra="" Comment="" />
 		<key Table="station" Non_unique="0" Key_name="PRIMARY" Seq_in_index="1" Column_name="stationID" Collation="A" Cardinality="12" Null="" Index_type="BTREE" Comment="" Index_comment="" />
-		<options Name="station" Engine="InnoDB" Version="10" Row_format="Dynamic" Rows="12" Avg_row_length="1365" Data_length="16384" Max_data_length="0" Index_length="0" Data_free="0" Auto_increment="13" Create_time="2021-03-25 09:03:53" Collation="latin1_swedish_ci" Create_options="" Comment="" />
+		<options Name="station" Engine="InnoDB" Version="10" Row_format="Dynamic" Rows="12" Avg_row_length="1365" Data_length="16384" Max_data_length="0" Index_length="0" Data_free="0" Auto_increment="13" Create_time="2021-05-13 20:37:19" Collation="latin1_swedish_ci" Create_options="" Comment="" />
 	</table_structure>
 	<table_data name="station">
 	<row>
